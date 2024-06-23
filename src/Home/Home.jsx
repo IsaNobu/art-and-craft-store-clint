@@ -1,5 +1,11 @@
+import Slider from "./slider/Slider";
+
 const Home = () => {
-  return <div>polo</div>;
+  return (
+    <div>
+      <Slider></Slider>
+    </div>
+  );
 };
 
 export default Home;

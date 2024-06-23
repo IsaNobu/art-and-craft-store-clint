@@ -30,6 +30,9 @@ const Login = () => {
         toast("Your email or password is incorrect");
       });
   };
+
+  // Google signIn
+
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
@@ -42,6 +45,9 @@ const Login = () => {
         console.log(error.message);
       });
   };
+
+  // github signIn
+
   const handleGitHubSignIn = () => {
     signInWithGitHub()
       .then((result) => {
