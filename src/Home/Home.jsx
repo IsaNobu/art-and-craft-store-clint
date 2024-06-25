@@ -13,6 +13,7 @@ const Home = () => {
   return (
     <div>
       <Slider></Slider>
+      {/* SubCategories */}
       <div className="my-12">
         <div>
           <img
@@ -22,7 +23,7 @@ const Home = () => {
         </div>
         <div className="bg-[#E5E2DD] py-12">
           <h1 className="playfair-display text-3xl font-light text-center mb-12">
-            Our PoPular
+            Painting and Drawing
           </h1>
           <div className="grid grid-cols-[400px_400px_400px] justify-center gap-12 cursor-pointer">
             {data.map((data) => (

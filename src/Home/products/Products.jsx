@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 
 const Products = ({ data }) => {
-  const { img, discount, title, price, _id } = data;
+  const { img, title, _id } = data;
   return (
     <div>
       <NavLink to={`/items/${_id}`}>
@@ -14,16 +14,13 @@ const Products = ({ data }) => {
               alt=""
             />
             <p className="text-center mt-6 text-white text-xl">{title}</p>
-            <p className="text-center mt-6">Price - {price} $</p>
           </div>
           <ul
             tabIndex={0}
             className="dropdown-content top-[221px] py-3 rounded-b-2xl z-[1] w-[396px] p-2 bg-purple-700 text-white"
           >
             <li>
-              <a>
-                {discount ? <>discount {discount}%</> : "click to view details"}
-              </a>
+              <a>click to view details</a>
             </li>
           </ul>
         </div>

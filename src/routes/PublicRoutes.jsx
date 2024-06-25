@@ -4,11 +4,16 @@ import Login from "../auth/Login";
 import Home from "../Home/Home";
 import Register from "../auth/Register";
 import Details from "../Home/products/itemDetails/Details";
+import ErrorPage from "../error-page";
+import PrivetRoute from "./PrivateRoute";
+import AddCraftItem from "../Home/Add Craft Item/AddCraftItem";
+import MyArtAndCraftList from "../Home/My Art&Craft List/MyArt&CraftList";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -27,6 +32,22 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/Add-Craft-Item",
+        element: (
+          <PrivetRoute>
+            <AddCraftItem />
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/All-Art-&-craft-Items",
+        element: (
+          <PrivetRoute>
+            <MyArtAndCraftList />
+          </PrivetRoute>
+        ),
       },
     ],
   },

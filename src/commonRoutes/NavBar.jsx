@@ -53,6 +53,12 @@ const NavBar = () => {
       >
         All Art & craft Items
       </NavLink>
+      <NavLink
+        className={({ isActive }) => (isActive ? "underline" : "no-underline")}
+        to={"/Add-Craft-Item"}
+      >
+        Add Craft Item
+      </NavLink>
     </>
   );
   return (
