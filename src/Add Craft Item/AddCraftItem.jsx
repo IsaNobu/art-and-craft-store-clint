@@ -34,7 +34,7 @@ const AddCraftItem = () => {
       processing_time: time,
       stockStatus: stockStatus,
       customization: Customizability,
-      user_email: username,
+      username: username,
       email: email,
     };
 

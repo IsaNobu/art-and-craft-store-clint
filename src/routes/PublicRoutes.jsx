@@ -6,8 +6,9 @@ import Register from "../auth/Register";
 import Details from "../Home/products/itemDetails/Details";
 import ErrorPage from "../error-page";
 import PrivetRoute from "./PrivateRoute";
-import AddCraftItem from "../Home/Add Craft Item/AddCraftItem";
+import AddCraftItem from "../Add Craft Item/AddCraftItem";
 import MyArtAndCraftList from "../Home/My Art&Craft List/MyArt&CraftList";
+import CraftedItemsDetails from "../Home/CraftedItems/CraftedItemsDetails";
 
 const router = createBrowserRouter([
   {
@@ -21,9 +22,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/items/:id",
-        element: <Details />,
+        element: (
+          <PrivetRoute>
+            <Details />
+          </PrivetRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/items/${params.id}`),
+      },
+      {
+        path: "/item-details/:id",
+        element: (
+          <PrivetRoute>
+            <CraftedItemsDetails />
+          </PrivetRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/item-details/${params.id}`),
       },
       {
         path: "/login",
