@@ -18,11 +18,11 @@ const CraftedItemsDetails = () => {
   } = data;
 
   return (
-    <div className="flex justify-center gap-12 my-24">
+    <div className="flex lg:flex-row flex-col justify-center gap-12 my-24">
       <div>
         <img className="lg:w-[569px] lg:h-[569px]" src={image} alt="" />
       </div>
-      <div className="space-y-4 w-[600px]">
+      <div className="space-y-4 lg:w-[600px] p-6">
         <h1 className="dm-sans font-medium text-3xl">{item_name}</h1>
         <h1 className="dm-sans font-medium text-xl">Painter: {username}</h1>
         <h3 className="text-red-600 text-xl font-semibold">{price} $</h3>
