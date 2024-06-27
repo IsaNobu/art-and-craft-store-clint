@@ -14,13 +14,14 @@ const ReviewSliders = () => {
               Here from our thousands of happy <br /> customers every day
             </h1>
           </div>
-          <div className="w-[800px]">
+          <div className="lg:w-[800px]">
             <Swiper
               spaceBetween={50}
               slidesPerView={1}
               navigation={true}
               pagination={{ clickable: true }}
               modules={[]}
+              className="lg:w-[650px] md:w-[550px] w-[400px]"
             >
               <SwiperSlide>
                 <div className="space-y-6">
@@ -62,7 +63,7 @@ const ReviewSliders = () => {
                     </div>
                   </div>
                   <div className="flex justify-center">
-                    <p className="w-[650px] text-center">
+                    <p className="lg:w-[650px] w-[400px] text-center">
                       I recently started attending an arts and crafts painting
                       class, and I am absolutely loving it! It is such a great
                       way to de-stress after a long day. The instructor is

@@ -1,11 +1,16 @@
+import { useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../provider/AuthProvider";
 
 const AddCraftItem = () => {
+  const { user } = useContext(AuthContext);
+
   const handleForm = (e) => {
     e.preventDefault();
 
     const form = new FormData(e.currentTarget);
+
     const itemName = form.get("i-name");
     const subCat = form.get("subCat");
     const url = form.get("url");
@@ -22,6 +27,12 @@ const AddCraftItem = () => {
       return toast("Please select Customizability");
     } else if (stockStatus === "Stock Status") {
       return toast("Please select stock status");
+    }
+
+    if (email !== user.email) {
+      return toast("please check your email address");
+    } else if (username !== user.displayName) {
+      return toast("please check your username");
     }
 
     const data = {
@@ -44,7 +55,13 @@ const AddCraftItem = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify(data),
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast("Your item has been added successfully");
+        e.target.reset();
+      });
   };
   return (
     <div className="flex justify-center md:flex-row flex-col items-center my-24">

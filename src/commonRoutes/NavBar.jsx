@@ -125,7 +125,7 @@ const NavBar = () => {
                     </label>
                   </li>
                   <li>
-                    <NavLink to={"/my-art-and-craft-list"}>
+                    <NavLink to={"/My-Art-&-craft-Items"}>
                       My Art&Craft List
                     </NavLink>
                   </li>

@@ -7,8 +7,9 @@ import Details from "../Home/products/itemDetails/Details";
 import ErrorPage from "../error-page";
 import PrivetRoute from "./PrivateRoute";
 import AddCraftItem from "../Add Craft Item/AddCraftItem";
-import MyArtAndCraftList from "../Home/My Art&Craft List/MyArt&CraftList";
-import CraftedItemsDetails from "../Home/CraftedItems/CraftedItemsDetails";
+import MyArtAndCraftList from "../My Art&Craft List/MyArt&CraftList";
+import CraftedItemsDetails from "../CraftedItems/CraftedItemsDetails";
+import AllArtAndCraftItems from "../all arts and craft/AllArt&CraftItems";
 
 const router = createBrowserRouter([
   {
@@ -57,12 +58,21 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/All-Art-&-craft-Items",
+        path: "/My-Art-&-craft-Items",
         element: (
           <PrivetRoute>
             <MyArtAndCraftList />
           </PrivetRoute>
         ),
+      },
+      {
+        path: "/All-Art-&-craft-Items",
+        element: (
+          <PrivetRoute>
+            <AllArtAndCraftItems />
+          </PrivetRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/data"),
       },
     ],
   },

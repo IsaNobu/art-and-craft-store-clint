@@ -26,6 +26,13 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  const updateUser = (displayName, photoURL) => {
+    return updateProfile(auth.currentUser, {
+      displayName: displayName,
+      photoURL: photoURL,
+    });
+  };
+
   const signInUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
@@ -73,6 +80,7 @@ const AuthProvider = ({ children }) => {
     logOut,
     signInWithGitHub,
     updateGivenProfile,
+    updateUser,
   };
   return (
     <div>

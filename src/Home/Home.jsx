@@ -2,8 +2,9 @@ import Slider from "./sliders/Slider";
 import "../index.css";
 import { useEffect, useState } from "react";
 import Products from "./products/Products";
-import CraftedItems from "./CraftedItems/CraftedItems";
+import CraftedItems from "../CraftedItems/CraftedItems";
 import ReviewSliders from "./sliders/ReviewSliders";
+import { ToastContainer } from "react-toastify";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -20,6 +21,7 @@ const Home = () => {
   }, []);
   return (
     <div>
+      <ToastContainer />
       <div>
         <Slider></Slider>
       </div>
@@ -127,7 +129,9 @@ const Home = () => {
 
       {/* review section */}
 
-      <ReviewSliders />
+      <div className="">
+        <ReviewSliders />
+      </div>
     </div>
   );
 };

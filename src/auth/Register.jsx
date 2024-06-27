@@ -5,12 +5,14 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
+    const name = form.get("name");
+    const url = form.get("url");
     const email = form.get("email");
     const password = form.get("password");
 
@@ -32,8 +34,16 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result);
-        toast("You've Successfully registered");
-        navigate("/");
+
+        updateUser(name, url)
+          .then((result) => {
+            console.log(result);
+            toast("You've Successfully registered");
+            navigate("/");
+            location.reload();
+          })
+
+          .error((error) => console.log(error));
       })
       .catch((error) => {
         toast("Please fill up your form carefully");

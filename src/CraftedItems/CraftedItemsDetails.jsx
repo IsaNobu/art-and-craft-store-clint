@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import "../../index.css";
+import "../index.css";
 
 const CraftedItemsDetails = () => {
   const data = useLoaderData();
