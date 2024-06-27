@@ -1,8 +1,9 @@
-import Slider from "./slider/Slider";
+import Slider from "./sliders/Slider";
 import "../index.css";
 import { useEffect, useState } from "react";
 import Products from "./products/Products";
 import CraftedItems from "./CraftedItems/CraftedItems";
+import ReviewSliders from "./sliders/ReviewSliders";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -23,10 +24,17 @@ const Home = () => {
         <Slider></Slider>
       </div>
       {/* craft item section */}
-      <div className="grid lg:grid-cols-[178px_178px_178px_178px_178px_178px] justify-center my-56 gap-6">
-        {items.map((item) => (
-          <CraftedItems key={item._id} data={item}></CraftedItems>
-        ))}
+      <div>
+        <div>
+          <h1 className="text-center font-medium tex text-3xl playfair-display mt-40 mb-24">
+            Our Trending
+          </h1>
+        </div>
+        <div className="grid lg:grid-cols-[178px_178px_178px_178px_178px_178px] justify-center mb-56 gap-6">
+          {items.map((item) => (
+            <CraftedItems key={item._id} data={item}></CraftedItems>
+          ))}
+        </div>
       </div>
       {/* SubCategories */}
       <div className="my-12">
@@ -116,6 +124,10 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* review section */}
+
+      <ReviewSliders />
     </div>
   );
 };
