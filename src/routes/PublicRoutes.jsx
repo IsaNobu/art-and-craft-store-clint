@@ -10,6 +10,7 @@ import AddCraftItem from "../Add Craft Item/AddCraftItem";
 import MyArtAndCraftList from "../My Art&Craft List/MyArt&CraftList";
 import CraftedItemsDetails from "../CraftedItems/CraftedItemsDetails";
 import AllArtAndCraftItems from "../all arts and craft/AllArt&CraftItems";
+import MyArtAndCraftListUpdatePage from "../My Art&Craft List/MyArt&CraftListUpdatePage";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,16 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/item-details/${params.id}`),
       },
       {
+        path: "/My-Art-&-craft-Items/My-Arts-And-Crafts-Update-Page/:id",
+        element: (
+          <PrivetRoute>
+            <MyArtAndCraftListUpdatePage />
+          </PrivetRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/item-details/${params.id}`),
+      },
+      {
         path: "/login",
         element: <Login />,
       },
@@ -64,6 +75,7 @@ const router = createBrowserRouter([
             <MyArtAndCraftList />
           </PrivetRoute>
         ),
+        loader: () => fetch("http://localhost:5000/data"),
       },
       {
         path: "/All-Art-&-craft-Items",
