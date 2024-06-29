@@ -3,6 +3,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../../index.css";
+import { Typewriter } from "react-simple-typewriter";
 
 const Slider = () => {
   return (
@@ -25,8 +26,9 @@ const Slider = () => {
                   alt=""
                 />
                 <h1 className="lg:text-6xl md:text-5xl text-3xl font-semibold text-white text-center playfair-display">
-                  What rhymes Arts ? <br />
-                  Its Craft
+                  <Typewriter
+                    words={["What", "rhymes", "Arts", "?", "Its", "Craft"]}
+                  />
                 </h1>
               </div>
             </div>

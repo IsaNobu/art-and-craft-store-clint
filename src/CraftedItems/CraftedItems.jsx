@@ -1,14 +1,19 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
 
 const CraftedItems = ({ data }) => {
   const { image, price, item_name, _id } = data;
   return (
     <div>
+      <Tooltip id="my-tooltip" />
       <Link to={`/item-details/${_id}`}>
         <div
-          className="cursor-pointer hover:border-2 p-3 rounded-lg tooltip"
-          data-tip="Click to view details"
+          className="cursor-pointer hover:border-2 p-3 rounded-lg"
+          data-tooltip-id="my-tooltip"
+          data-tooltip-content="Click to view details"
+          data-tooltip-place="top"
         >
           <div>
             <img className="w-[178px] h-[133.5px]" src={image} alt="" />
@@ -28,9 +33,3 @@ CraftedItems.propTypes = {
 };
 
 export default CraftedItems;
-
-// artlover123@gmail.com
-// creative.mind.sarah@gmail.com
-// john.paintbrush@gmail.com
-// _isabella_artist@gmail.com
-// michael_drawings@gmail.com

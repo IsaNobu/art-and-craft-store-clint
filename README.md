@@ -1,8 +1,11 @@
-# React + Vite
+Doodle Nation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+5 key features on my website
 
-Currently, two official plugins are available:
+1. you can add your listing and update them when ever you want.
+2. you can login with your email and password or google or github. which ever you want.
+3. you can see every ones listed item and their details in the "All Arts and Crafts" page.
+4. you can toggle between light and dark mode.
+5. your information is also secure.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Live Link - https://assignment-10-2417c.web.app/

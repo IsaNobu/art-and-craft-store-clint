@@ -10,7 +10,7 @@ const MyArtAndCraftList = () => {
   const filteredData = getData.filter((data) => data.email === user.email);
 
   return (
-    <div className="grid grid-cols-3 justify-items-center mt-24">
+    <div className="grid lg:grid-cols-3 justify-items-center mt-24">
       {filteredData.map((data) => (
         <MyArtAndCraftListDetails
           key={data._id}

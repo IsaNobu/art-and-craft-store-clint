@@ -18,9 +18,12 @@ const MyArtAndCraftListDetails = ({ data }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/item-details/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://art-and-craft-store-server-2bah7sxwc-isa-nobus-projects.vercel.app/item-details/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
