@@ -49,16 +49,13 @@ const AddCraftItem = () => {
       email: email,
     };
 
-    fetch(
-      "https://art-and-craft-store-server-2bah7sxwc-isa-nobus-projects.vercel.app/data",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    )
+    fetch("https://art-and-craft-store-server-nine.vercel.app/data", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

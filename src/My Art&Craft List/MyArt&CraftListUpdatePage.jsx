@@ -28,16 +28,13 @@ const MyArtAndCraftListUpdatePage = () => {
 
     console.log(_id);
 
-    fetch(
-      `https://art-and-craft-store-server-2bah7sxwc-isa-nobus-projects.vercel.app/item-details/${_id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updatedInfo),
-      }
-    )
+    fetch(`https://art-and-craft-store-server-nine.vercel.app/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedInfo),
+    })
       .then((res) => res.json())
       .then((result) => {
         console.log(result);

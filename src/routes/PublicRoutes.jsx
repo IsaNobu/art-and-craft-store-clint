@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://art-and-craft-store-server-2bah7sxwc-isa-nobus-projects.vercel.app/items/${params.id}`
+            `https://art-and-craft-store-server-nine.vercel.app/items/${params.id}`
           ),
       },
       {
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://art-and-craft-store-server-2bah7sxwc-isa-nobus-projects.vercel.app/item-details/${params.id}`
+            `https://art-and-craft-store-server-nine.vercel.app/item-details/${params.id}`
           ),
       },
       {
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://art-and-craft-store-server-2bah7sxwc-isa-nobus-projects.vercel.app/item-details/${params.id}`
+            `https://art-and-craft-store-server-nine.vercel.app/item-details/${params.id}`
           ),
       },
       {
@@ -82,9 +82,7 @@ const router = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: () =>
-          fetch(
-            "https://art-and-craft-store-server-2bah7sxwc-isa-nobus-projects.vercel.app/data"
-          ),
+          fetch("https://art-and-craft-store-server-nine.vercel.app/data"),
       },
       {
         path: "/All-Art-&-craft-Items",
@@ -94,9 +92,7 @@ const router = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: () =>
-          fetch(
-            "https://art-and-craft-store-server-2bah7sxwc-isa-nobus-projects.vercel.app/data"
-          ),
+          fetch("https://art-and-craft-store-server-nine.vercel.app/data"),
       },
     ],
   },

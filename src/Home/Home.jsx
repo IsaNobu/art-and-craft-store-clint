@@ -11,15 +11,11 @@ const Home = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://art-and-craft-store-server-2bah7sxwc-isa-nobus-projects.vercel.app/items"
-    )
+    fetch("https://art-and-craft-store-server-nine.vercel.app/items")
       .then((res) => res.json())
       .then((result) => setData(result));
 
-    fetch(
-      "https://art-and-craft-store-server-2bah7sxwc-isa-nobus-projects.vercel.app/data"
-    )
+    fetch("https://art-and-craft-store-server-nine.vercel.app/data")
       .then((res) => res.json())
       .then((result) => setItems(result));
   }, []);
