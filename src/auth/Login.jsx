@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,24 +9,22 @@ const Login = () => {
   const { signInUser, signInWithGoogle, signInWithGitHub } =
     useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
-    console.log(email, password);
 
     // email login
 
     signInUser(email, password)
-      .then((result) => {
-        console.log(result);
+      .then(() => {
         navigate(location?.state ? location.state : "/");
         toast("You've successfully logged in");
       })
-      .catch((error) => {
-        console.log(error.message);
+      .catch(() => {
         toast("Your email or password is incorrect");
       });
   };
@@ -35,14 +33,12 @@ const Login = () => {
 
   const handleGoogleSignIn = () => {
     signInWithGoogle()
-      .then((result) => {
-        console.log(result);
+      .then(() => {
         navigate(location?.state ? location.state : "/");
         toast("You've successfully logged in");
       })
-      .catch((error) => {
+      .catch(() => {
         toast("Your email or password is incorrect");
-        console.log(error.message);
       });
   };
 
@@ -50,14 +46,12 @@ const Login = () => {
 
   const handleGitHubSignIn = () => {
     signInWithGitHub()
-      .then((result) => {
-        console.log(result);
+      .then(() => {
         navigate(location?.state ? location.state : "/");
         toast("You've successfully logged in");
       })
-      .catch((error) => {
+      .catch(() => {
         toast("Your email or password is incorrect");
-        console.log(error.message);
       });
   };
   return (

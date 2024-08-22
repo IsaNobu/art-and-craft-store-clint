@@ -32,22 +32,15 @@ const Register = () => {
     }
 
     createUser(email, password)
-      .then((result) => {
-        console.log(result);
-
-        updateUser(name, url)
-          .then((result) => {
-            console.log(result);
-            toast("You've Successfully registered");
-            navigate("/");
-            location.reload();
-          })
-
-          .error((error) => console.log(error));
+      .then(() => {
+        updateUser(name, url).then(() => {
+          toast("You've Successfully registered");
+          navigate("/");
+          location.reload();
+        });
       })
-      .catch((error) => {
+      .catch(() => {
         toast("Please fill up your form carefully");
-        console.log(error.message);
       });
   };
   return (

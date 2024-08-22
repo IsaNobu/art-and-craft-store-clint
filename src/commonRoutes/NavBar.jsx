@@ -30,13 +30,7 @@ const NavBar = () => {
   }
 
   const handleLogOut = () => {
-    logOut()
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+    logOut();
   };
 
   const NavLinks = (

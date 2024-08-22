@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 const MyArtAndCraftListUpdatePage = () => {
   const data = useLoaderData();
-  const { item_name, price, rating, _id } = data;
+  const { item_name, price, rating, _id, url } = data;
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -13,31 +13,33 @@ const MyArtAndCraftListUpdatePage = () => {
     const itemName = form.get("i-name");
     const url = form.get("url");
     const price = form.get("price");
+    const parseIntPrice = parseInt(price);
     const rating = form.get("rating");
+    const parseIntRating = parseInt(rating);
     const Customizability = form.get("Customizability");
     const stockStatus = form.get("stock-status");
 
     const updatedInfo = {
-      itemName,
+      item_name: itemName,
       url,
-      price,
-      rating,
+      price: parseIntPrice,
+      rating: parseIntRating,
       Customizability,
       stockStatus,
     };
 
-    console.log(_id);
-
-    fetch(`https://art-and-craft-store-server-nine.vercel.app/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedInfo),
-    })
+    fetch(
+      `https://art-and-craft-store-server-nine.vercel.app/item-details/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedInfo),
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         if (result.modifiedCount > 0) {
           toast("Data updated successfully");
         }
@@ -64,7 +66,7 @@ const MyArtAndCraftListUpdatePage = () => {
           </label>
           <input
             type="url"
-            placeholder="Copy yor photo URL here"
+            defaultValue={url}
             name="url"
             className="input input-bordered input-md w-full max-w-xs"
           />

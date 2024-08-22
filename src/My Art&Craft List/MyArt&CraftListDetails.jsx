@@ -18,12 +18,14 @@ const MyArtAndCraftListDetails = ({ data }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://art-and-craft-store-server-nine.vercel.app/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://art-and-craft-store-server-nine.vercel.app/item-details/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deleteCount > 0) {
               Swal.fire({
                 title: "Deleted!",

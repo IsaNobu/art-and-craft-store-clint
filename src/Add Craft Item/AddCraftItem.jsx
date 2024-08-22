@@ -16,8 +16,11 @@ const AddCraftItem = () => {
     const url = form.get("url");
     const shortDes = form.get("short-des");
     const price = form.get("price");
+    const parseIntPrice = parseInt(price);
     const rating = form.get("rating");
+    const parseIntRating = parseInt(rating);
     const time = form.get("time");
+    const parseIntTime = parseInt(time);
     const email = form.get("email");
     const username = form.get("username");
     const Customizability = form.get("Customizability");
@@ -37,12 +40,12 @@ const AddCraftItem = () => {
 
     const data = {
       item_name: itemName,
-      subcategory_Name: subCat,
+      subcategoryName: subCat,
       image: url,
-      short_description: shortDes,
-      price: price,
-      rating: rating,
-      processing_time: time,
+      shortDescription: shortDes,
+      price: parseIntPrice,
+      rating: parseIntRating,
+      processingTime: parseIntTime,
       stockStatus: stockStatus,
       customization: Customizability,
       username: username,
@@ -57,8 +60,7 @@ const AddCraftItem = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
         toast("Your item has been added successfully");
         e.target.reset();
       });
